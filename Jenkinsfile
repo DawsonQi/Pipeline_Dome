@@ -1,5 +1,3 @@
-@Library('Dawson_share_lib') _
-
 pipeline {
     agent any 
     stages {
