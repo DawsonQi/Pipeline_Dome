@@ -1,5 +1,5 @@
 pipeline{
-    agent //{
+    agent any //{
         //node{
           //  label 'XXX-agent-机器'
         //    customWorkspace "${env.JOB_NAME}/${env.BUILD_NUMBER}"
