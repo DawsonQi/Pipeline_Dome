@@ -1,20 +1,18 @@
 pipeline{
-    agent any //{
-        //node{
-          //  label 'XXX-agent-机器'
-        //    customWorkspace "${env.JOB_NAME}/${env.BUILD_NUMBER}"
-      //  }
-    //}
-    stages{
-        stage('Build'){
-            bat 'dir' //如果Jenkins安装在Windows并且执行这部分代码
-            sh 'pwd' //这个是Linux的执行
-            print "pwd"
+ 
+    agent any
+    parameters {
+        string(name: 'userName', defaultValue: 'Anthony', description: 'please give a name')
+        choice(name: 'version', choices: ['1.1', '1.2', '1.3'], description: 'select the version to test')
+        booleanParam(name: 'is_boy', defaultValue: true, description: 'you is boy or not')
+    }
+    stages {
+        stage('test') {
+            steps{
+                script {
+                    sh "java -version"
+                }
+            }  
         }
-        stage (‘Test’) {
-           bat “dir” // 如果jenkins安装在windows并执行这部分代码
-           print "test"
-           sh “echo ${JAVA_HOME}”  //这个是Linux的执行
-       }
     }
 }
