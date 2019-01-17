@@ -10,7 +10,7 @@ pipeline{
         stage('test') {
             steps{
                 script {
-                    sh "java -version"
+                    print "java -version"
                 }
             }  
         }
